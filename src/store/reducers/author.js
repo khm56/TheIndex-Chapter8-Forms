@@ -1,7 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  author: {}
+  author: {},
+  book: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,7 +14,10 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionTypes.POST_BOOK:
-    //UPDATE THE STATE ACCORDINGLY
+      return {
+        ...state,
+        book: action.payload
+      };
     default:
       return state;
   }
