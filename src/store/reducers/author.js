@@ -1,8 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  author: {},
-  book: {}
+  author: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,7 +15,10 @@ const reducer = (state = initialState, action) => {
     case actionTypes.POST_BOOK:
       return {
         ...state,
-        book: action.payload
+        author: {
+          ...state.author,
+          books: state.author.books.concat(action.payload)
+        }
       };
     default:
       return state;
